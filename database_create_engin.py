@@ -13,5 +13,5 @@ my_cursor.execute("SHOW DATABASES")
 for db in my_cursor:
     print(db)
 
-my_cursor.close()
+# my_cursor.close()
 print('All Done!')
