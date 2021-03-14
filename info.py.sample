@@ -1,2 +1,3 @@
 username = 'your mysql username'
 password = 'your mysql password'
+host     = 'your host'
