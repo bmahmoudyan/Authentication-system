@@ -1,3 +1,8 @@
+""" help
+first of all change this file name to "info.py"
+2nd set your data exeapt default data
+"""
+
 username = 'your mysql username'
 password = 'your mysql password'
 host     = 'your host'
