@@ -1,12 +1,13 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from .info import username, password
+from info import username, password, host
 from users.routes import users
 
 
 app = Flask(__name__)
 app.register_blueprint(users)
-app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql://{username}:{password}@localhost/db'
+app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+pymysql://{username}:{password}@{host}/mysqldb'
+db = SQLAlchemy(app)
 
 
 @app.route('/')
