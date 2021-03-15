@@ -1,12 +1,16 @@
 
 from flask import Blueprint, render_template
+from users.forms import LoginForm
 
 users = Blueprint('users', __name__)
 
 
-@users.route('/login')
+@users.route('/login', methods=['POST', 'GET'])
 def login():
-    return render_template('users/login.html')
+    form = LoginForm()
+    if form.validate_on_submit():
+        pass
+    return render_template('users/login.html', form=form)
 
 
 @users.route('/register')
