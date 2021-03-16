@@ -1,6 +1,6 @@
 
 from flask import Blueprint, render_template
-from users.forms import LoginForm
+from users.forms import LoginForm, RegisterForm
 
 users = Blueprint('users', __name__)
 
@@ -15,4 +15,8 @@ def login():
 
 @users.route('/register')
 def register():
-    return 'register page'
+    form = RegisterForm()
+    return render_template('users/register.html', form=form)
+
+
+
