@@ -38,4 +38,4 @@ class RegisterForm(FlaskForm):
         "placeholder": "confirm your password", 'class': "form-control", 'id': 'inputPassword4'})
 
     submit = SubmitField(
-        render_kw={"value": "LOGIN", 'class': 'btn btn-primary'})
+        render_kw={"value": "REGISTER", 'class': 'btn btn-primary'})
