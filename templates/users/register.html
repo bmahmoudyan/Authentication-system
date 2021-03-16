@@ -1,13 +1,32 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-{{ form.name }}
-{{ form.last_name }}
-{{ form.username }}
-{{ form.email }}
-{{ form.phone_number }}
-{{ form.password }}
-{{ form.confirm_password }}
+<form action="" class="col-lg-4 col-md-9 col-sm-12" style="margin: 100px auto">
+    {{ form.csrf_token }}
+    <div class="container">
+        {{ form.name }}
+    </div>
+    <div class="container mt-3">
+        {{ form.last_name }}
+    </div>
+    <div class="container mt-3">
+        {{ form.username }}
+    </div>
+    <div class="container mt-3">
+        {{ form.email }}
+    </div>
+    <div class="container mt-3">
+        {{ form.phone_number }}
+    </div>
+    <div class="container mt-3">
+        {{ form.password }}
+    </div>
+    <div class="container mt-3">
+        {{ form.confirm_password }}
+    </div>
+    <div class="container mt-3">
+        {{ form.submit }}
+    </div>
+</form>
 
 {% endblock content %}
