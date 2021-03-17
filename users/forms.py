@@ -1,7 +1,8 @@
 from flask_wtf import FlaskForm
+from users.models import User
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.fields.html5 import EmailField
-from wtforms.validators import DataRequired, Length
+from wtforms.validators import DataRequired, Length, EqualTo, Email, ValidationError
 
 
 class LoginForm(FlaskForm):
@@ -25,7 +26,7 @@ class RegisterForm(FlaskForm):
     username = StringField('Email Address', render_kw={
         "placeholder": "email username or phone number", 'id': 'inputEmail4', "class": 'form-control'})
 
-    email = EmailField('Email Addres', validators=[DataRequired()], render_kw={
+    email = EmailField('Email Addres', validators=[DataRequired(), Email()], render_kw={
         "placeholder": "your email address", 'id': 'inputEmail4', "class": 'form-control'})
 
     phone_number = StringField('Number', render_kw={
@@ -34,7 +35,7 @@ class RegisterForm(FlaskForm):
     password = PasswordField('password', validators=[DataRequired()],  render_kw={
                              "placeholder": "enter your password", 'class': "form-control", 'id': 'inputPassword4'})
 
-    confirm_password = PasswordField(' password', validators=[DataRequired()],  render_kw={
+    confirm_password = PasswordField(' password', validators=[DataRequired(), EqualTo('password')],  render_kw={
         "placeholder": "confirm your password", 'class': "form-control", 'id': 'inputPassword4'})
 
     submit = SubmitField(
