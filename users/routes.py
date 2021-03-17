@@ -9,14 +9,13 @@ users = Blueprint('users', __name__)
 def login():
     form = LoginForm()
     if form.validate_on_submit():
-        pass
+        print('login successful')
     return render_template('users/login.html', form=form)
 
 
-@users.route('/register')
+@users.route('/register', methods=['POST', 'GET'])
 def register():
     form = RegisterForm()
+    if form.validate_on_submit():
+        print('register is validate_on_submit')
     return render_template('users/register.html', form=form)
-
-
-
