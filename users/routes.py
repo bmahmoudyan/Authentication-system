@@ -13,6 +13,11 @@ def login():
     return render_template('users/login.html', form=form)
 
 
+@users.route('/logout')
+def logout():
+    print('log out user')
+
+
 @users.route('/register', methods=['POST', 'GET'])
 def register():
     form = RegisterForm()
