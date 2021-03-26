@@ -15,5 +15,8 @@ app.register_blueprint(users)
 from main.routes import main
 app.register_blueprint(main)
 
+from admin.routes import admin
+app.register_blueprint(admin)
+
 if __name__ == '__main__':
     app.run()
