@@ -5,7 +5,8 @@ from utility import SecretKey
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = SecretKey
-app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+pymysql://{username}:{password}@{host}/{database}'
+# app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+pymysql://{username}:{password}@{host}/{database}'
+app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///authenticator.db"
 db = SQLAlchemy(app)
 
 
