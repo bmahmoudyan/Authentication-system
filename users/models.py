@@ -8,9 +8,9 @@ class User(db.Model):
     last_name = db.Column(db.String(80), nullable=True)
     username = db.Column(db.String(120), nullable=False, unique=True)
     email = db.Column(db.String(180), nullable=False, unique=True)
-    email_is_Confirm = db.Column(db.Boolean)
+    email_is_Confirm = db.Column(db.Boolean, nullable=True)
     phone_number = db.Column(db.String(80), nullable=False, unique=True)
-    phone_number_is_Confirm = db.Column(db.Boolean)
+    phone_number_is_Confirm = db.Column(db.Boolean, nullable=True)
     password = db.Column(db.String(80), nullable=False)
 
     def __repr__(self):
