@@ -7,7 +7,7 @@ from wtforms.validators import DataRequired, Length, EqualTo, Email, ValidationE
 
 class LoginForm(FlaskForm):
     login_method = StringField('username', validators=[DataRequired()],  render_kw={
-                               "placeholder": "email username or phone number", 'id': 'inputEmail4', "class": 'form-control'})
+                               "placeholder": "username", 'id': 'inputEmail4', "class": 'form-control'})
     password = PasswordField(' password', validators=[DataRequired()],  render_kw={
                              "placeholder": "password", 'class': "form-control", 'id': 'inputPassword4'})
     submit = SubmitField(
@@ -15,28 +15,26 @@ class LoginForm(FlaskForm):
 
 
 class RegisterForm(FlaskForm):
-    name = StringField('Name', validators=[
-                       DataRequired(), Length(min=3, max=25)], render_kw={
-        "placeholder": "enter your name", 'id': 'inputEmail4', "class": 'form-control'})
+    name = StringField('Name', validators=[DataRequired(), Length(min=3, max=25)], render_kw={
+                       "placeholder": "enter your name", 'id': 'inputEmail4'})
 
-    last_name = StringField('Last Name', validators=[
-                            DataRequired(), Length(min=3, max=25)], render_kw={
-        "placeholder": "enter your last name", 'id': 'inputEmail4', "class": 'form-control'})
+    last_name = StringField('Last Name', validators=[DataRequired(), Length(
+        min=3, max=25)], render_kw={"placeholder": "enter your last name", 'id': 'inputEmail4'})
 
-    username = StringField('Email Address', render_kw={
-        "placeholder": "email username or phone number", 'id': 'inputEmail4', "class": 'form-control'})
+    username = StringField('user name', render_kw={
+                           "placeholder": "username", 'id': 'inputEmail4'})
 
     email = EmailField('Email Addres', validators=[DataRequired(), Email()], render_kw={
-        "placeholder": "your email address", 'id': 'inputEmail4', "class": 'form-control'})
+                       "placeholder": "your email address: name@example.com", 'id': 'inputEmail4'})
 
-    phone_number = StringField('Number', render_kw={
-                               "placeholder": "your phone number", 'id': 'inputEmail4', "class": 'form-control'})
+    phone_number = StringField(
+        'Number', render_kw={"placeholder": "your phone number", 'id': 'inputEmail4'})
 
-    password = PasswordField('password', validators=[DataRequired()],  render_kw={
-                             "placeholder": "enter your password", 'class': "form-control", 'id': 'inputPassword4'})
+    password = PasswordField('password', validators=[DataRequired(), Length(
+        min=8)],  render_kw={"placeholder": "enter your password", 'id': 'inputPassword4'})
 
-    confirm_password = PasswordField(' password', validators=[DataRequired(), EqualTo('password')],  render_kw={
-        "placeholder": "confirm your password", 'class': "form-control", 'id': 'inputPassword4'})
+    confirm_password = PasswordField(' password', validators=[DataRequired(), EqualTo(
+        'password')],  render_kw={"placeholder": "confirm your password", 'id': 'inputPassword4'})
 
     submit = SubmitField(
         render_kw={"value": "REGISTER", 'class': 'btn btn-primary'})

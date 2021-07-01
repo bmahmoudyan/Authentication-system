@@ -1,96 +1,98 @@
 {% extends "base.html" %}
 
 {% block content %}
-<form action="" class="col-lg-4 col-md-9 col-sm-12" style="margin: 100px auto" method="post">
-    {{ form.csrf_token }}
-    <legend class="border-bottom mb-4">Join Us Today</legend>
+<div class="content-section">
+    <form class="col-lg-4 col-md-9 col-sm-12" style="margin: 100px auto" method="post">
+        {{ form.csrf_token }}
+        <legend class="border-bottom mb-4">Join Us Today</legend>
 
-    <div class="container">
-        {% if form.name.errors %}
-        {{ form.name }}
-        <div class="invalid-feedback">
-            {% for error in form.name.errors %}
-            <span>{{ error }}</span>
-            {% endfor %}
+        <div class="container">
+            {% if form.name.errors %}
+            {{ form.name(class='form-control is-invalid') }}
+            <div class="invalid-feedback">
+                <span>tsest</span>
+                {% for error in form.name.errors %}
+                <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+            {% else %}
+            {{ form.name(class='form-control ') }}
+            {% endif %}
         </div>
-        {% else %}
-        {{ form.name }}
-        {% endif %}
-    </div>
-    <div class="container mt-3">
-        {% if form.last_name.errors %}
-        {{ form.last_name }}
-        <div class="invalid-feedback">
-            {% for error in form.last_name.errors %}
-            <span>{{ error }}</span>
-            {% endfor %}
+        <div class="container mt-3">
+            {% if form.last_name.errors %}
+            {{ form.last_name(class='form-control is-invalid') }}
+            <div class="invalid-feedback">
+                {% for error in form.last_name.errors %}
+                <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+            {% else %}
+            {{ form.last_name(class='form-control ') }}
+            {% endif %}
         </div>
-        {% else %}
-        {{ form.last_name }}
-        {% endif %}
-    </div>
-    <div class="container mt-3">
-        {% if form.username.errors %}
-        {{ form.username }}
-        <div class="invalid-feedback">
-            {% for error in form.username.errors %}
-            <span>{{ error }}</span>
-            {% endfor %}
+        <div class="container mt-3">
+            {% if form.username.errors %}
+            {{ form.username(class='form-control is-invalid') }}
+            <div class="invalid-feedback">
+                {% for error in form.username.errors %}
+                <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+            {% else %}
+            {{ form.username(class='form-control ') }}
+            {% endif %}
         </div>
-        {% else %}
-        {{ form.username }}
-        {% endif %}
-    </div>
-    <div class="container mt-3">
-        {% if form.email.errors %}
-        {{ form.email }}
-        <div class="invalid-feedback">
-            {% for error in form.email.errors %}
-            <span>{{ error }}</span>
-            {% endfor %}
+        <div class="container mt-3">
+            {% if form.email.errors %}
+            {{ form.email(class='form-control is-invalid') }}
+            <div class="invalid-feedback">
+                {% for error in form.email.errors %}
+                <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+            {% else %}
+            {{ form.email(class='form-control ') }}
+            {% endif %}
         </div>
-        {% else %}
-        {{ form.email }}
-        {% endif %}
-    </div>
-    <div class="container mt-3">
-        {% if form.phone_number.errors %}
-        {{ form.phone_number }}
-        <div class="invalid-feedback">
-            {% for error in form.phone_number.errors %}
-            <span>{{ error }}</span>
-            {% endfor %}
+        <div class="container mt-3">
+            {% if form.phone_number.errors %}
+            {{ form.phone_number(class='form-control is-invalid') }}
+            <div class="invalid-feedback">
+                {% for error in form.phone_number.errors %}
+                <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+            {% else %}
+            {{ form.phone_number(class='form-control ') }}
+            {% endif %}
         </div>
-        {% else %}
-        {{ form.phone_number }}
-        {% endif %}
-    </div>
-    <div class="container mt-3">
-        {% if form.password.errors %}
-        {{ form.password }}
-        <div class="invalid-feedback">
-            {% for error in form.password.errors %}
-            <span>{{ error }}</span>
-            {% endfor %}
+        <div class="container mt-3">
+            {% if form.password.errors %}
+            {{ form.password(class='form-control is-invalid') }}
+            <div class="invalid-feedback">
+                {% for error in form.password.errors %}
+                <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+            {% else %}
+            {{ form.password(class='form-control ') }}
+            {% endif %}
         </div>
-        {% else %}
-        {{ form.password }}
-        {% endif %}
-    </div>
-    <div class="container mt-3">
-        {% if form.password.errors %}
-        {{ form.password }}
-        <div class="invalid-feedback">
-            {% for error in form.password.errors %}
-            <span>{{ error }}</span>
-            {% endfor %}
+        <div class="container mt-3">
+            {% if form.confirm_password.errors %}
+            {{ form.confirm_password(class='form-control is-invalid') }}
+            <div class="invalid-feedback">
+                {% for error in form.confirm_password.errors %}
+                <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+            {% else %}
+            {{ form.confirm_password(class='form-control ') }}
+            {% endif %}
         </div>
-        {% else %}
-        {{ form.password }}
-        {% endif %}
-    </div>
-    <div class="container mt-3">
-        {{ form.submit }}
-    </div>
-</form>
-{% endblock content %}
+        <div class="container mt-3">
+            {{ form.submit }}
+        </div>
+    </form>
+    {% endblock content %}
