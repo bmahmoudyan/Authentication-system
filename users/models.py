@@ -1,8 +1,14 @@
 
-from app import db
+from app import db, login_manager
+from flask_login import UserMixin
 
 
-class User(db.Model):
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
+
+
+class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), nullable=True)
     last_name = db.Column(db.String(80), nullable=True)
@@ -14,4 +20,4 @@ class User(db.Model):
     password = db.Column(db.String(80), nullable=False)
 
     def __repr__(self):
-        return f'{id}, {self.name}, {self.username}, {self.email_addr}:{self.email_addr_is_Confirm}, {self.phone_number}:{self.phone_number_is_Confirm}'
+        return f'{id}, {self.username}, {self.email}'

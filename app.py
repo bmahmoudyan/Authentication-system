@@ -2,6 +2,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from info import username, password, host, database
 from utility import SecretKey
+from flask_login import LoginManager
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = SecretKey
@@ -9,6 +10,8 @@ app.config['SECRET_KEY'] = SecretKey
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///authenticator.db"
 db = SQLAlchemy(app)
 
+login_manager = LoginManager(app)
+login_manager.init_app(app)
 
 from users.routes import users
 app.register_blueprint(users)
