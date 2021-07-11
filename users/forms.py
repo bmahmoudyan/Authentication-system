@@ -6,12 +6,12 @@ from wtforms.validators import DataRequired, Length, EqualTo, Email, ValidationE
 
 
 class LoginForm(FlaskForm):
-    login_method = StringField('username', validators=[DataRequired()],  render_kw={
-                               "placeholder": "username", 'id': 'inputEmail4', "class": 'form-control'})
+    username = StringField('username', validators=[DataRequired()],  render_kw={
+        "placeholder": "username", 'id': 'inputEmail4'})
     password = PasswordField(' password', validators=[DataRequired()],  render_kw={
-                             "placeholder": "password", 'class': "form-control", 'id': 'inputPassword4'})
+                             "placeholder": "password", 'id': 'inputPassword4'})
     submit = SubmitField(
-        render_kw={"value": "LOGIN", 'class': 'btn btn-primary'})
+        render_kw={"value": "LOGIN"})
 
 
 class RegisterForm(FlaskForm):

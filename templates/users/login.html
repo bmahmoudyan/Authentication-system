@@ -5,13 +5,13 @@
 <form action="" class="col-lg-4 col-md-9 col-sm-12" style="margin: 100px auto" method="post">
     {{ form.csrf_token }}
     <div class="container">
-        {{ form.login_method }}
+        {{ form.username(class="form-control")}}
     </div>
     <div class="container mt-3">
-        {{ form.password }}
+        {{ form.password(class="form-control")}}
     </div>
     <div class="container mt-3">
-        {{ form.submit }}
+        {{ form.submit(class='btn btn-primary') }}
     </div>
 </form>
 {% endblock content %}
