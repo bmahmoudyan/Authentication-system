@@ -1,5 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
-this is user Profile.
+<div class="container">
+    <br>{{ context.id }}
+    <br>{{ context.name }}
+    <br>{{ context.last_name }}
+    <br>{{ context.username }}
+    <br>{{ context.email }}
+    <br>{{ context.email_is_Confirm }}
+    <br>{{ context.phone_number }}
+    <br>{{ context.phone_number_is_Confirm }}
+    <br>{{ context.password }}
+</div>
 {% endblock content %}
+

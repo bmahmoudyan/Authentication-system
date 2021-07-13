@@ -37,6 +37,7 @@ def register():
     return render_template('users/register.html', form=form)
 
 
-@users.route('/user')
-def profile():
-    return render_template('users/userProfile.html')
+@users.route('/user/<string:username>')
+def profile(username):
+    user = User.query.filter_by(username=username).first_or_404()
+    return render_template('users/userProfile.html', context=user)
