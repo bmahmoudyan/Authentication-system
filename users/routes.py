@@ -1,6 +1,6 @@
 from app import db
 from flask import Blueprint, render_template, redirect, url_for
-from flask_login import current_user, login_user
+from flask_login import current_user, login_user, logout_user, login_required
 from users.forms import LoginForm, RegisterForm
 from users.models import User
 
@@ -19,8 +19,10 @@ def login():
 
 
 @users.route('/logout')
+@login_required
 def logout():
-    print('log out user')
+    logout_user()
+    return redirect(url_for('main.home'))
 
 
 @users.route('/register', methods=['POST', 'GET'])

@@ -1,7 +1,7 @@
 <div class="container-fluid bg-dark">
     <div class="container pt-2 pb-2">
         <ul class="nav nav-pills justify-content-end">
-            {% if is_authenticated %}
+            {% if current_user.is_authenticated %}
             <li class="nav-item">
                 <a class="btn btn-outline-primary" href="{{ url_for('users.logout') }}">Log out</a>
             </li>
