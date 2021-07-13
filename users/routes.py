@@ -35,3 +35,8 @@ def register():
         db.session.commit()
         return redirect(url_for('users.login'))
     return render_template('users/register.html', form=form)
+
+
+@users.route('/user')
+def profile():
+    return render_template('users/userProfile.html')
