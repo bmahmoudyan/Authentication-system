@@ -38,6 +38,7 @@ def register():
 
 
 @users.route('/user/<string:username>')
+@login_required
 def profile(username):
     user = User.query.filter_by(username=username).first_or_404()
     return render_template('users/userProfile.html', context=user)
