@@ -47,4 +47,18 @@
         </tbody>
     </table>
 </div>
+<div class="container">
+    <br><br>
+    {% if not context.email_is_Confirm %}
+    <div>
+        <a href="#">click to confirm your phone number</a>
+    </div>
+    {% endif %}
+    <br>
+    {% if not context.phone_number_is_Confirm %}
+    <div>
+        <a href="#">click to confirm your phone number</a>
+    </div>
+    {% endif %}
+</div>
 {% endblock content %}
