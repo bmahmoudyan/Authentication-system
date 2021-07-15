@@ -42,3 +42,7 @@ def register():
 def profile(username):
     user = User.query.filter_by(username=username).first_or_404()
     return render_template('users/userProfile.html', context=user)
+
+
+# TODO confirm user phone number
+# TODO confirm user email address

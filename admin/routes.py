@@ -10,3 +10,6 @@ def administrator():
         'users': 'this is users query',
     }
     return render_template('admin/administrator.html', context=context)
+
+
+# TODO your users information page
