@@ -2,6 +2,8 @@
 
 {% block content %}
 
+{% include "main/navbar.html"%}
+
 <form action="" class="col-lg-4 col-md-9 col-sm-12" style="margin: 100px auto" method="post">
     {{ form.csrf_token }}
     <div class="container">

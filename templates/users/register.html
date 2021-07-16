@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
+
+{% include "main/navbar.html"%}
+
+
 <div class="content-section">
     <form class="col-lg-4 col-md-9 col-sm-12" style="margin: 100px auto" method="post">
         {{ form.csrf_token }}
