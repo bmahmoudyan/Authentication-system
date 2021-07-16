@@ -45,4 +45,9 @@ def profile(username):
 
 
 # TODO confirm user phone number
+@users.route('/confirmPhoneNumber')
+def confirm_phone_number():
+    return render_template('users/confirmPhoneNumber.html')
+
+
 # TODO confirm user email address
