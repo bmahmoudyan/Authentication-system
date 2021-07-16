@@ -1,5 +1,17 @@
 {% extends "base.html"%}
 
 {% block content %}
-this is confirm page
+<div class="container">
+    <form class="col-lg-4 col-md-9 col-sm-12" style="margin: 100px auto" method="post">
+        <p>کد تایید برای شما به شماره {{ user_phone }} ارسال شد</p>
+        <br>
+        {{ form.csrf_token }}
+        <div class="container">
+            {{ form.code(class="form-control")}}
+        </div>
+        <div class="container mt-3">
+            {{ form.submit(class='btn btn-primary') }}
+        </div>
+    </form>
+</div>
 {% endblock content %}
