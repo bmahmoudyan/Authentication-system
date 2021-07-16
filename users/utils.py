@@ -9,3 +9,11 @@ def confirm_code_generator():
     return int(confirmCode)
 
 
+def sms_sender(userPhoneNumbers: 'user phoen number', msg: 'your message and confirm code'):
+    api = KavenegarAPI(f'{kavenegarApi}')
+    params = {
+        'sender': '1000596446', 
+        'receptor': userPhoneNumbers,
+        'message': msg,
+    }
+    response = api.sms_send(params)
