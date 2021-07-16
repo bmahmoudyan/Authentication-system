@@ -38,3 +38,10 @@ class RegisterForm(FlaskForm):
 
     submit = SubmitField(
         render_kw={"value": "REGISTER", 'class': 'btn btn-primary'})
+
+
+class ConfirmCodeNumber(FlaskForm):
+    code = StringField('code', validators=[DataRequired()], render_kw={
+                       "placeholder": "enter your name", 'id': 'inputEmail4'})
+    submit = SubmitField(
+        render_kw={"value": "CONFIRM", 'class': 'btn btn-primary'})
