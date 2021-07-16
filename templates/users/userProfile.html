@@ -52,7 +52,7 @@
     <br><br>
     {% if not context.email_is_Confirm %}
     <div>
-        <a href="{{ url_for('users.confirm_phone_number') }}">click to confirm your phone number</a>
+        <a href="{{ url_for('users.confirm_phone_number', username=current_user.username) }}">click to confirm your phone number</a>
     </div>
     {% endif %}
     <br>
