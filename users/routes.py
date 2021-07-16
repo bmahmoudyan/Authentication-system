@@ -1,7 +1,7 @@
 from app import db
 from flask import Blueprint, render_template, redirect, url_for, request
 from flask_login import current_user, login_user, logout_user, login_required
-from users.forms import LoginForm, RegisterForm
+from users.forms import LoginForm, RegisterForm, ConfirmCodeNumber
 from users.models import User, UserConfirmCode
 from users.utils import confirm_code_generator, sms_sender
 
@@ -31,7 +31,7 @@ def register():
     form = RegisterForm()
     if form.validate_on_submit():
         new_user = User(name=form.name.data, last_name=form.last_name.data, username=form.username.data,
-                        email=form.email.data, phone_number=form.phone_number.data, password=form.password.data)
+                        email=form.email.data, phone_number=form.phone_number.data, password=form.password.data, phone_number_is_Confirm=False, email_is_Confirm=False)
         db.session.add(new_user)
         db.session.commit()
         return redirect(url_for('users.login'))
@@ -49,6 +49,7 @@ def profile(username):
 @users.route('/user/<string:username>/confirmPhoneNumber', methods=['POST', 'GET'])
 def confirm_phone_number(username):
     confirm_code = confirm_code_generator()
+    form = ConfirmCodeNumber()
 
     if request.method == 'GET':
         user = User.query.filter_by(username=username).first()
@@ -58,7 +59,21 @@ def confirm_phone_number(username):
         new_code = UserConfirmCode(username=username, code=confirm_code)
         db.session.add(new_code)
         db.session.commit()
-        return render_template('users/confirmPhoneNumber.html')
+        return render_template('users/confirmPhoneNumber.html', form=form, user_phone=phone_number)
+
+    if request.method == 'POST':
+        if form.validate_on_submit():
+            user_db_code = UserConfirmCode.query.filter_by(username=username).first()
+            if form.code.data == user_db_code.code:
+                user = User.query.filter_by(username=username).first_or_404()
+                user.phone_number_is_Confirm = True
+                db.session.add(user)
+                db.session.commit()
+                db.session.delete(user_db_code)
+                db.session.commit()
+                return redirect(url_for('users.profile', username=username))
+            else:
+                return render_template('users/confirmPhoneNumber.html', form=form, user_phone=phone_number)
 
 
 # TODO confirm user email address
