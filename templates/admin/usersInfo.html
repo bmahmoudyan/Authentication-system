@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% for user in users %}
+<br>
+<div class="container">
+    <table class="table table-striped table-hover">
+        <tbody>
+            <tr>
+                <th scope="row">name</th>
+                <td colspan="2">{{ user.name }}</td>
+                <td colspan="2"> </td>
+            </tr>
+            <tr>
+                <th scope="row">last name</th>
+                <td colspan="2" class="table-active">{{ user.last_name }}</td>
+                <td colspan="2" class="table-active"> </td>
+            </tr>
+            <tr>
+                <th scope="row">username</th>
+                <td colspan="2">{{ user.username }}</td>
+                <td colspan="2"> </td>
+            </tr>
+            <tr>
+                <th scope="row">email</th>
+                <td colspan="2" class="table-active">{{ user.email }}</td>
+                {% if user.email_is_Confirm %}
+                <td colspan="2" class="table-active">confirmed</td>
+                {% else %}
+                <td colspan="2" class="table-active">Not confirmed</td>
+                {% endif %}
+            </tr>
+            <tr>
+                <th scope="row">phone number</th>
+                <td colspan="2">{{ user.phone_number }}</td>
+                {% if user.phone_number_is_Confirm %}
+                <td colspan="2">confirmed</td>
+                {% else %}
+                <td colspan="2">Not confirmed</td>
+                {% endif %}
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endfor %}
+
+{% endblock content %}
