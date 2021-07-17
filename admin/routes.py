@@ -1,9 +1,10 @@
 from flask import Blueprint, render_template
+from users.models import User
 
 
 admin = Blueprint('admin', __name__)
 
-# TODO jast admin can open this page
+
 @admin.route('/administrator')
 def administrator():
     context = {
@@ -12,4 +13,7 @@ def administrator():
     return render_template('admin/administrator.html', context=context)
 
 
-# TODO your users information page
+@admin.route('/usersInfo')
+def users():
+    users = User.query.all()
+    return render_template('admin/usersInfo.html', users=users)
