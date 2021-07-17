@@ -45,7 +45,6 @@ def profile(username):
     return render_template('users/userProfile.html', context=user)
 
 
-# TODO confirm user phone number
 @users.route('/user/<string:username>/confirmPhoneNumber', methods=['POST', 'GET'])
 def confirm_phone_number(username):
     confirm_code = confirm_code_generator()
